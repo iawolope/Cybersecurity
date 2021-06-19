@@ -8,11 +8,11 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-![Install ELK Server yml Script](Ansible/Install_ELK.txt)
-![Script to install Filebeats](Ansible/Filebeat-playbook.txt)
-![Script to setup metricbeats](Ansible/metricbeat-playbook.txt)
-![Hosts file for ansible](Ansible/hosts.rtf)
-![Playbook to install DVWA web applicatio](Ansible/pentest.txt)
+![Install ELK Server yml Script](Ansible/Install_ELK.txt)  
+![Script to install Filebeats](Ansible/Filebeat-playbook.txt)  
+![Script to setup metricbeats](Ansible/metricbeat-playbook.txt)  
+![Hosts file for ansible](Ansible/hosts.rtf)  
+![Playbook to install DVWA web applicatio](Ansible/pentest.txt)  
 
 This document contains the following details:
 - Description of the Topology
@@ -90,33 +90,33 @@ This ELK server is configured to monitor the following machines:
 - 10.0.0.7   Web-3
 
 We have installed the following Beats on these machines:
-- Filebeat
-- Metricbeat
-- Packbeat
+- Filebeat  
+- Metricbeat  
+- Packbeat  
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Filebeat detects changes to the filesystem. Specifically, we use it to collect Apache logs.
 - Metricbeat: Metricbeat detects changes in system metrics, such as CPU usage. We use it to detect SSH login attempts, failedsudo            escalations, and CPU/RAM statistics.
-- Packetbeat: Packetbeat collects packets that pass through the NIC, similar to Wireshark. We use it to generate a trace of all activity that takes place on the network, in case later forensic analysis should be warranted.
+- Packetbeat: Packetbeat collects packets that pass through the NIC, similar to Wireshark. We use it to generate a trace of all activity that takes place on the network, in case later forensic analysis should be warranted.  
 
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. The Jump Box VM is used for this purpose.
+In order to use the playbook, you will need to have an Ansible control node already configured. The Jump Box VM is used for this purpose.  
 
 SSH into the Jump Box VM and follow the steps below:
-- Copy the playbooks file to /etc/ansible on the Jump Box VM.
-- Update the hosts file to include webservers and ELK Server IP address
-$ cd /etc/ansible
-$ cat > hosts <<EOF
-[webservers]
-10.0.0.5
-10.0.0.6
+- Copy the playbooks file to /etc/ansible on the Jump Box VM.  
+- Update the hosts file to include webservers and ELK Server IP address    
+$ cd /etc/ansible   
+$ cat > hosts <<EOF  
+[webservers]  
+10.0.0.5  
+10.0.0.6  
+                    
+[elk]  
+10.1.0.4  
+EOF  
 
-[elk]
-10.1.0.4
-EOF
+- Run the playbook, and navigate to curl http://40.69.159.116:5601 to check that the installation worked as expected.  
 
-- Run the playbook, and navigate to curl http://40.69.159.116:5601 to check that the installation worked as expected.
-
-- Run the below command to download playbook from github
-    $git clone https://github.com/iawolope/Cybersecurity.git  
+- Run the below command to download playbook from github  
+    $git clone https://github.com/iawolope/Cybersecurity.git    
